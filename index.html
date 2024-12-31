@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: auto;
+            border: 2px solid white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .keyboard {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .keyboard button {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .keyboard button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>You're here again, but for what?</h2>
+        <input type="text" id="inputBox" placeholder="Yurameki...">
+        <div class="response" id="responseDiv"></div>
+
+        <div class="keyboard">
+            <button>`</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+            <button>q</button>
+            <button>w</button>
+            <button>e</button>
+            <button>r</button>
+            <button>t</button>
+            <button>y</button>
+            <button>u</button>
+            <button>i</button>
+            <button>o</button>
+            <button>p</button>
+            <button>a</button>
+            <button>s</button>
+            <button>d</button>
+            <button>f</button>
+            <button>g</button>
+            <button>h</button>
+            <button>j</button>
+            <button>k</button>
+            <button>l</button>
+            <button>z</button>
+            <button>x</button>
+            <button>c</button>
+            <button>v</button>
+            <button>b</button>
+            <button>n</button>
+            <button>m</button>
+        </div>
+    </div>
+
+    <script>
+        const inputBox = document.getElementById('inputBox');
+        const responseDiv = document.getElementById('responseDiv');
+
+        function shuffleString(str) {
+            const arr = str.split('');
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.join('');
+        }
+
+        inputBox.addEventListener('input', function () {
+            const input = this.value.trim().toLowerCase();
+            if (input === "") {
+                responseDiv.innerText = ""; // Display blank output when nothing is typed
+            } else if (input === "in the air") {
+                responseDiv.innerText = "February 14, 2025"; // Specific output for "in the air"
+                       } else if (input === "Congratulations") {
+                responseDiv.innerText = "for solving this puzzle. Designed and written by zelll."; // Specific output for "in the air
+            } else if (input === "dark fantasy") {
+                responseDiv.innerText = ""; // Specific output for "dark fantasy"
+            } else if (input === "fucked up") {
+                responseDiv.innerText = "fuckedupgallery.blogspot.com, my personal gallery"; // Specific output for "fucked up"
+            } else if (input === "soundcloud") {
+                responseDiv.innerText = "https://soundcloud.com/zelllzelllzelll"; // Specific output for "darkness"
+              } else if (input === "youtube") {
+                responseDiv.innerText = "https://youtube.com/@zelllzelllzelll"; // Specific output for "darkness"
+      } else if (input === "bandcamp") {
+                responseDiv.innerText = "zelll.bandcamp.com"; // Specific output for "darkness"
+             } else if (input === "in the air") {
+                responseDiv.innerText = "February 14, 2025"; // Specific output for "in the air"
+            } else {
+                const shuffledResponse = shuffleString(input);
+                responseDiv.innerText = shuffledResponse; // Randomized input response
+            }
+        });
+    </script>
+</body>
+</html>
